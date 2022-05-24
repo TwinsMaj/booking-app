@@ -1,32 +1,23 @@
 import chalk from 'chalk';
 
 export default class Logger {
-	public static log = (args: any) => this.info(args);
+	public static log = (message: string, ...metadata: Array<Record<string, unknown>>) => this.info(message, ...metadata);
 
-	public static info = (args: any) => {
+	public static info = (message: string, ...metadata: Array<Record<string, unknown>>) => {
 		if (process.env.NODE_ENV !== 'test') {
-			console.log(
-				chalk.blue(`[${new Date().toLocaleString()}] [INFO]`),
-				typeof args === 'string' ? chalk.blueBright(args) : args,
-			);
+			console.log(chalk.blue(`[${new Date().toLocaleString()}] [INFO]`), message, ...metadata);
 		}
 	};
 
-	public static warning = (args: any) => {
+	public static warning = (message: string, ...metadata: Array<Record<string, unknown>>) => {
 		if (process.env.NODE_ENV !== 'test') {
-			console.log(
-				chalk.yellow(`[${new Date().toLocaleString()}] [WARN]`),
-				typeof args === 'string' ? chalk.yellowBright(args) : args,
-			);
+			console.log(chalk.yellow(`[${new Date().toLocaleString()}] [WARN]`), message, ...metadata);
 		}
 	};
 
-	public static error = (args: any) => {
+	public static error = (message: string, ...metadata: Array<Record<string, unknown>>) => {
 		if (process.env.NODE_ENV !== 'test') {
-			console.log(
-				chalk.red(`[${new Date().toLocaleString()}] [ERROR]`),
-				typeof args === 'string' ? chalk.redBright(args) : args,
-			);
+			console.log(chalk.red(`[${new Date().toLocaleString()}] [ERROR]`), message, ...metadata);
 		}
 	};
 }
