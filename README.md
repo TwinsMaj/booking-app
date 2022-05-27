@@ -31,7 +31,9 @@ A simple app for making bike reservations
 
 ### Running Tests
 
-- `npm run test:watch` to run tests
+- `npm run test:watch` to run tests (This would fail as jest is doesn't play well with integration tests).
+- use `npm run test:watch -- users.test.ts` to run tests for users. Run this test first
+- user `npm run test:watch -- bookings.test.ts` to run tests for Bookings.
 
 ### TODO
 
