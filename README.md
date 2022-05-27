@@ -37,6 +37,7 @@ A simple app for making bike reservations
 
 ### TODO
 
+- add logout logic
 - hook up docker
 - add debugging with vscode
 - unify npm scripts - helps to reduce the number of setup commands
