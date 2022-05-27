@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { logLevels } from '../errors/log-levels';
+import { StatusCodes } from 'http-status-codes';
 import { ServerError } from '../errors/server-error';
 import Logger from '../logger';
 
@@ -11,7 +11,7 @@ export async function errorHandler(
 ): Promise<void> {
 	Logger.log(`[errorHandler]:: request ${req.method} ${req.originalUrl} :: ${error.message}`, { ...error });
 
-	res.status(error.status || 500).json({
+	res.status(error.status || StatusCodes.INTERNAL_SERVER_ERROR).json({
 		error: {
 			message: error.message,
 			code: error.code,
