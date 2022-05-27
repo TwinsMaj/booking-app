@@ -11,7 +11,7 @@ describe('users', () => {
 	});
 
 	afterAll(async () => {
-		await knex('users').delete();
+		await knex.raw('DELETE FROM users');
 	});
 
 	it('should return true if user exists', async () => {
