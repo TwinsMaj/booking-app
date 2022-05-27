@@ -1,5 +1,7 @@
-import knex from "knex";
+import knex from 'knex';
+import config from './knexfile';
+import * as appConfig from './config/config';
 
-import config from "../knexfile";
+const env = appConfig.config.server.env;
 
-export default knex(config.development);
+export default knex(config[env]);
